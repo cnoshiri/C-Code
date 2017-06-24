@@ -11,11 +11,12 @@
  DOCUMENTATION
  
  Program Purpose:
- 	Write a program to manage DVD rental in a ìvideoî rental store. Create an abstract data type that 
-	represents a DVD in this store. Consider all the data and operations that may be necessary for the 
-	DVD type to work well within a rental management system. Include a print() member function that 
-	displays all the information about the DVD. Test your data type by creating an array of 10 DVD instances 
-	and filling them using information read from a test input file that you create. Display the DVD information
+ 	This program manages a DVD rental in a ‚Äúvideo‚Äù rental store. It creates an abstract data type that 
+	represents a DVD in this store. It considers all the data and operations that may be necessary for the 
+	DVD type to work well within a rental management system. It has a print() member function that 
+	displays all the information about the DVD. To test, an array of 10 DVD instances were created and filled
+	using information read from a test input file and displays the DVD information. It also uses a customer profile to 
+	rent out dvds
 
  Compile (assuming Cygwin is running): $ g++ DvdStore.cpp DVD.cpp -o dvdstore
  Execution (assuming Cygwin is running): ./dvdstore.exe
@@ -31,7 +32,7 @@
  	response - used to read the response typed by the user. 
  	arrOfDvds - used to create an array of dvds
 	string value[4] - used to hold each token read from the input file. Token are separated by a comma delimiter
-	in - used to open the file TMA2Question1.txt from the directory
+	in - used to open the file dvdStoreSample.txt from the directory
 	line - used to read each line in the file
 	counter - this gets incremented every time a line is read and is used to set the serial number of each dvd item in the list
 	fname - used to read the first name of the customer
@@ -129,14 +130,14 @@ Normal case 3: ( a new customer profile was created)
  
  Bad Data case 2 (when the <algorithm> library is not included)
  	>$ g++ TMA2Question1.cpp DVD.cpp -o q1
-	>TMA2Question1.cpp: In function ëint main()í:
-	>TMA2Question1.cpp:225:38: error: ëatoií was not declared in this scope
+	>TMA2Question1.cpp: In function ‚Äòint main()‚Äô:
+	>TMA2Question1.cpp:225:38: error: ‚Äòatoi‚Äô was not declared in this scope
     >int value = atoi(response.c_str());
                                       ^
-	>TMA2Question1.cpp:244:41: error: ëatoií was not declared in this scope
+	>TMA2Question1.cpp:244:41: error: ‚Äòatoi‚Äô was not declared in this scope
     >int value = atoi(serialNumber.c_str());
                                          ^
-	>TMA2Question1.cpp:276:42: error: ëatoií was not declared in this scope
+	>TMA2Question1.cpp:276:42: error: ‚Äòatoi‚Äô was not declared in this scope
     > int value = atoi(serialNumber.c_str());
 
  
@@ -150,8 +151,8 @@ Normal case 3: ( a new customer profile was created)
 
 Bad Data case 5 (when the 'DVD.h' header file is not included)
 	Compile error occurs
-	>TMA2Question1.cpp: In function ëint main()í:
-	>TMA2Question1.cpp:139:9: error: ëDVDí was not declared in this scope
+	>TMA2Question1.cpp: In function ‚Äòint main()‚Äô:
+	>TMA2Question1.cpp:139:9: error: ‚ÄòDVD‚Äô was not declared in this scope
   	>	vector<DVD>arrOfDvds;
         ^
 	>TMA2Question1.cpp:139:12: error: template argument 1 is invalid
@@ -352,7 +353,7 @@ int main()
 	vector<DVD>arrOfDvds; 
 	vector <Customer> customers;
 	string value[4];
-	ifstream in("TMA2Question1.txt"); //name of file to read dvd items from 
+	ifstream in("dvdStoreSample.txt"); //name of file to read dvd items from 
 	int counter = 0; //will be used as the array index
 	string line;
 	//used to hold customer information
